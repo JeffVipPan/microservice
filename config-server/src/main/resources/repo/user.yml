@@ -1,0 +1,24 @@
+server:
+    port: 9010
+    #context-path: /dms-rest
+spring:
+    datasource:
+        name: user
+        url: jdbc:mysql:thin:@localhost:3006:users
+        driver-class-name: oracle.jdbc.MysqlDriver
+        username: root
+        password: password
+        connectionTimeout: 2000
+
+ribbon:
+    ConnectTimeout: 3000
+    ReadTimeout: 5000
+hystrix:
+    command:
+        default:
+            execution:
+                isolation:
+                    thread:
+                        timeoutInMilliseconds: 5000
+
+

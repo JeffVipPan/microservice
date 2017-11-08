@@ -1,11 +1,17 @@
 server:
-  port: 8082
+  port: ${config.server.port:8001}
+  #context-path: /registry
+
+spring:
+  application:
+    name: registry
+
 eureka:
   instance:
-    hostname: localhost
+    hostname: 0.0.0.0
   client:
     register-with-eureka: false
     fetch-registry: false
     serviceUrl:
-          #defaultZone:  http://${eureka.instance.hostname}:${server.port}/registry/eureka/
-          defaultZone:  http://${eureka.instance.hostname}:${server.port}/eureka/
+      #defaultZone:  http://${eureka.instance.hostname}:${server.port}/registry/eureka/
+      defaultZone:  http://${eureka.instance.hostname}:${server.port}/eureka/
